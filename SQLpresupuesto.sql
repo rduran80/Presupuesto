@@ -232,8 +232,6 @@ create proc agregarPersona
 	insert into persona values(@Cedula,@Nombre,@Apellido1,@Apellido2,@Direccion,@Telefono)
 	end
 
-drop table persona
-
 create proc borrarPersona
 	@Cedula varchar(20)
 	as
@@ -281,9 +279,6 @@ create trigger Trigger_Auditoria_TipoUsuario
 
 
 select * from tipousuario
-select * from TipoUsuario_Auditoria
-
---Procesos almacenados
 
 
 
