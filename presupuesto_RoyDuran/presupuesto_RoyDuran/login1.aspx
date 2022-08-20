@@ -23,11 +23,11 @@
             <asp:TextBox type="password" ID="txtClave" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Enabled="False" ErrorMessage="El campo no puede estar vacio" Font-Bold="True" ForeColor="#FF3300" Visible="False" ControlToValidate="txtClave"></asp:RequiredFieldValidator>
                 <br />
+                <h3>Registrese&nbsp; <a href="registro.aspx">Aqui</a></h3>
                 <br />
                 <asp:Button class="btn" ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click"/>
                 <br />
-                <br />
-                login1</div>
+                </div>
     </form>
 </body>
 </html>

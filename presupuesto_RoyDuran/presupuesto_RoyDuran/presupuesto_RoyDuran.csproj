@@ -81,6 +81,7 @@
   <ItemGroup>
     <Content Include="inicioRegular.aspx" />
     <Content Include="login1.aspx" />
+    <Content Include="registro.aspx" />
     <Content Include="reporte.aspx" />
     <Content Include="transaccion.aspx" />
     <Content Include="inicio.aspx" />
@@ -106,6 +107,13 @@
     </Compile>
     <Compile Include="login1.aspx.designer.cs">
       <DependentUpon>login1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="registro.aspx.cs">
+      <DependentUpon>registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registro.aspx.designer.cs">
+      <DependentUpon>registro.aspx</DependentUpon>
     </Compile>
     <Compile Include="reporte.aspx.cs">
       <DependentUpon>reporte.aspx</DependentUpon>
