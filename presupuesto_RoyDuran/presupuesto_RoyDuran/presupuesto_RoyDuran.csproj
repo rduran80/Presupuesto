@@ -82,7 +82,8 @@
     <Content Include="inicioRegular.aspx" />
     <Content Include="login1.aspx" />
     <Content Include="registro.aspx" />
-    <Content Include="reporte.aspx" />
+    <Content Include="reporteFiltros.aspx" />
+    <Content Include="reporteGlobal.aspx" />
     <Content Include="transaccion.aspx" />
     <Content Include="inicio.aspx" />
     <Content Include="personas.aspx" />
@@ -115,12 +116,19 @@
     <Compile Include="registro.aspx.designer.cs">
       <DependentUpon>registro.aspx</DependentUpon>
     </Compile>
-    <Compile Include="reporte.aspx.cs">
-      <DependentUpon>reporte.aspx</DependentUpon>
+    <Compile Include="reporteFiltros.aspx.cs">
+      <DependentUpon>reporteFiltros.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="reporte.aspx.designer.cs">
-      <DependentUpon>reporte.aspx</DependentUpon>
+    <Compile Include="reporteFiltros.aspx.designer.cs">
+      <DependentUpon>reporteFiltros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reporteGlobal.aspx.cs">
+      <DependentUpon>reporteGlobal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reporteGlobal.aspx.designer.cs">
+      <DependentUpon>reporteGlobal.aspx</DependentUpon>
     </Compile>
     <Compile Include="transaccion.aspx.cs">
       <DependentUpon>transaccion.aspx</DependentUpon>

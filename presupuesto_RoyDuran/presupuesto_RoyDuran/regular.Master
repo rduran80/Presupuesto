@@ -26,8 +26,8 @@
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
-                        <a href="#">Reporte global</a>
-                        <a href="#">Reporte con filtros</a>
+                        <a href="reporteGlobal.aspx">Reporte global</a>
+                        <a href="reporteFiltros.aspx">Reporte con filtros</a>
                     </div>
                 </div>
             </div>
