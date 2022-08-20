@@ -110,9 +110,13 @@ C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\Presupuesto\presupuesto_RoyD
 C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\Presupuesto\presupuesto_RoyDuran\presupuesto_RoyDuran\bin\roslyn\VBCSCompiler.exe
 C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\Presupuesto\presupuesto_RoyDuran\presupuesto_RoyDuran\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\Presupuesto\presupuesto_RoyDuran\presupuesto_RoyDuran\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\Presupuesto\presupuesto_RoyDuran\presupuesto_RoyDuran\bin\Microsoft.Configuration.ConfigurationBuilders.Base.dll
+C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\Presupuesto\presupuesto_RoyDuran\presupuesto_RoyDuran\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll
+C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\Presupuesto\presupuesto_RoyDuran\presupuesto_RoyDuran\bin\Microsoft.Configuration.ConfigurationBuilders.Base.xml
+C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\Presupuesto\presupuesto_RoyDuran\presupuesto_RoyDuran\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.xml
 C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\Presupuesto\presupuesto_RoyDuran\presupuesto_RoyDuran\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\Presupuesto\presupuesto_RoyDuran\presupuesto_RoyDuran\obj\Debug\presupuesto_RoyDuran.csproj.AssemblyReference.cache
 C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\Presupuesto\presupuesto_RoyDuran\presupuesto_RoyDuran\obj\Debug\presupuesto_RoyDuran.csproj.CoreCompileInputs.cache
 C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\Presupuesto\presupuesto_RoyDuran\presupuesto_RoyDuran\obj\Debug\presupuesto_RoyDuran.csproj.CopyComplete
 C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\Presupuesto\presupuesto_RoyDuran\presupuesto_RoyDuran\obj\Debug\presupuesto_RoyDuran.dll
 C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\Presupuesto\presupuesto_RoyDuran\presupuesto_RoyDuran\obj\Debug\presupuesto_RoyDuran.pdb
+C:\Users\USUARIO\Documents\UPI\Progra III\Proyectos\Presupuesto\presupuesto_RoyDuran\presupuesto_RoyDuran\obj\Debug\presupuesto_RoyDuran.csproj.AssemblyReference.cache
