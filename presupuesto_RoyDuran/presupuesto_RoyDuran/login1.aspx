@@ -15,17 +15,19 @@
             <h1>Login</h1>
                 Email:&nbsp;
             <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Enabled="False" ErrorMessage="El campo no puede estar vacio" Font-Bold="True" Font-Italic="False" Font-Size="Medium" ForeColor="Red" Visible="False"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Enabled="False" ErrorMessage="El campo no puede estar vacio" Font-Bold="True" Font-Italic="False" Font-Size="Medium" ForeColor="Red" Visible="False" ControlToValidate="txtNombre"></asp:RequiredFieldValidator>
                 <br />
                 <br />
             <asp:Label  ID="Label2" runat="server" Text="Clave"></asp:Label>
             &nbsp;&nbsp;&nbsp;
             <asp:TextBox type="password" ID="txtClave" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Enabled="False" ErrorMessage="El campo no puede estar vacio" Font-Bold="True" ForeColor="#FF3300" Visible="False"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Enabled="False" ErrorMessage="El campo no puede estar vacio" Font-Bold="True" ForeColor="#FF3300" Visible="False" ControlToValidate="txtClave"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Button class="btn" ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click"/>
-            </div>
+                <br />
+                <br />
+                login1</div>
     </form>
 </body>
 </html>

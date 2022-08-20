@@ -87,7 +87,6 @@
     <Content Include="personas.aspx" />
     <Content Include="usuarios.aspx" />
     <Content Include="css\main.css" />
-    <Content Include="login.aspx" />
     <Content Include="css\regularMaster.css" />
     <Content Include="css\style.css" />
     <Content Include="images\fondoAzul2.jpg" />
@@ -149,13 +148,6 @@
     </Compile>
     <Compile Include="usuarios.aspx.designer.cs">
       <DependentUpon>usuarios.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="login.aspx.cs">
-      <DependentUpon>login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="login.aspx.designer.cs">
-      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clases\ClsPersona.cs" />
     <Compile Include="Clases\ClsTransaccion.cs" />

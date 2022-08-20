@@ -157,8 +157,6 @@ create table usuario
 select * from usuario
 
 --******Procedimientos almacenados******
-
-
 create proc agregarUsuario
 	@email varchar(20),
 	@clave varchar(30),
@@ -203,13 +201,13 @@ create proc obtTipoUsuario
 
 create proc validarUsuario
 	@email varchar(50),
-	@clave varchar(30),
-	@tipo_usuario varchar(50)
+	@clave varchar(30)
 	as
 	begin
-	select * from usuario where email=@email and clave = @clave and tipo_usuario = @tipo_usuario
+	select * from usuario where email=@email and clave = @clave
 	end
-exec validarUsuario 'jusolis@hotmail.com',123,2
+drop proc validarUsuario
+exec validarUsuario 'jusolis@hotmail.com',123
 
 exec obtTipoUsuario 'jsolis@hotmail.com'
 	
