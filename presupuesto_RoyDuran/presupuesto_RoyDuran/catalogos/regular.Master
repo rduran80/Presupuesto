@@ -8,6 +8,7 @@
     <title>Presupuesto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link href="../css/main.css" rel="stylesheet" />
+    <link href="../css/regularMaster.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -17,9 +18,18 @@
             <div class="navbar">
                 <a href="login.aspx">Login</a>
                 <a href="inicio.aspx">Inicio</a>
-                <a href="ingresos.aspx">Ingresos</a>
-                <a href="ingresos.aspx">Gastos</a>
-                <a href="reportes.aspx">Reportes</a>
+                <a href="transaccion.aspx">Ingresos</a>
+                <a href="transaccion.aspx">Gastos</a>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        Reportes
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Reporte global</a>
+                        <a href="#">Reporte con filtros</a>
+                    </div>
+                </div>
             </div>
 
             <div style="padding: 0 16px">

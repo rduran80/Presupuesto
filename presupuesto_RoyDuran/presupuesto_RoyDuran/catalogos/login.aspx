@@ -5,12 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Login</title>
     <link href="../css/style.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <h1>Sistema de control</h1>
+        <h1>Ingreso usuarios</h1>
             <div class="div div-login">
             <h1>Login</h1>
                 Email:&nbsp;

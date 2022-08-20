@@ -67,24 +67,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="catalogos\ingresos.aspx" />
+    <Content Include="catalogos\inicioRegular.aspx" />
+    <Content Include="catalogos\transaccion.aspx" />
     <Content Include="catalogos\inicio.aspx" />
     <Content Include="catalogos\personas.aspx" />
     <Content Include="catalogos\reportes.aspx" />
     <Content Include="catalogos\usuarios.aspx" />
     <Content Include="css\main.css" />
     <Content Include="catalogos\login.aspx" />
+    <Content Include="css\regularMaster.css" />
     <Content Include="css\style.css" />
     <Content Include="images\fondoAzul2.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="catalogos\ingresos.aspx.cs">
-      <DependentUpon>ingresos.aspx</DependentUpon>
+    <Compile Include="catalogos\inicioRegular.aspx.cs">
+      <DependentUpon>inicioRegular.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="catalogos\ingresos.aspx.designer.cs">
-      <DependentUpon>ingresos.aspx</DependentUpon>
+    <Compile Include="catalogos\inicioRegular.aspx.designer.cs">
+      <DependentUpon>inicioRegular.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="catalogos\transaccion.aspx.cs">
+      <DependentUpon>transaccion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="catalogos\transaccion.aspx.designer.cs">
+      <DependentUpon>transaccion.aspx</DependentUpon>
     </Compile>
     <Compile Include="catalogos\inicio.aspx.cs">
       <DependentUpon>inicio.aspx</DependentUpon>
@@ -128,18 +137,20 @@
     <Compile Include="catalogos\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ClsUsuario.cs" />
-    <Compile Include="mainMaster.Master.cs">
+    <Compile Include="Clases\ClsPersona.cs" />
+    <Compile Include="Clases\ClsTransaccion.cs" />
+    <Compile Include="Clases\ClsUsuario.cs" />
+    <Compile Include="catalogos\mainMaster.Master.cs">
       <DependentUpon>mainMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="mainMaster.Master.designer.cs">
+    <Compile Include="catalogos\mainMaster.Master.designer.cs">
       <DependentUpon>mainMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="mainMaster.Master" />
+    <Content Include="catalogos\mainMaster.Master" />
     <Content Include="catalogos\regular.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">

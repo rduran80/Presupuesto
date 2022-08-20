@@ -13,6 +13,7 @@ create table tipo_transaccion
 	constraint Ck_tipocontable check (tipoContable = 'Activo' or tipoContable = 'Pasivo'), --control valida campo
 	constraint pk_idtipotransaccion primary key (id)
 )
+select * from tipo_transaccion
 --******Procedimientos almacenados******
 create proc agregarTipoTrans
 	@Descripcion varchar(50),
@@ -21,7 +22,6 @@ create proc agregarTipoTrans
 	begin
 	insert into tipo_transaccion values (@Descripcion,@tipoContable)
 	end
-exec agregarTipoTrans 'Pago casa','Pasivo'
 
 create proc borrarTipoTrans
     @id int
@@ -39,12 +39,6 @@ create proc actualizarTipoTrans
 	update tipo_transaccion set Descripcion = @Descripcion, tipoContable = @tipoContable where id =@id 
 	end
 
-exec agregarTipoTrans 'Pago telefono','Pasivo'
-exec borrarTipoTrans
-exec actualizarTipoTrans 3,'Pago de internet','Pasivo'
-
-select * from tipo_transaccion 
-
 -- crea la tabla transacion
 create table transaccion 
 (
@@ -59,6 +53,8 @@ create table transaccion
 	constraint fk_emailtransaccion foreign key (email) references usuario(email)
 )
 
+
+
 --******Procedimientos almacenados******
 create proc agregarTransUsuario
 	@idTipoTransaccion int,
@@ -70,7 +66,6 @@ create proc agregarTransUsuario
 	begin
 	insert into transaccion values (@idTipoTransaccion,@email,@Descripcion,@monto,@Fecha)
 	end
-exec agregarTransUsuario 1,'jusolis@hotmail.com','Salario quincena',150000,'25/01/22'
 
 create proc actualizarTransUsuario
 	@id int,
@@ -91,13 +86,20 @@ create proc borrarTransUsuario
 	begin
 	delete transaccion where email = @email and id = @id
 	end
-
+drop proc transaccionConFiltro
 create proc transaccionConFiltro
-	@idTipoTransaccion int
+	@idTipoTransaccion int,
+	@email varchar(20) 
 	as
 	begin
-	select * from transaccion where idTipoTransaccion = @idTipoTransaccion
+	select * 
+	from transaccion t 
+	inner join tipo_transaccion tt
+	on t.idTipoTransaccion = tt.id
+	where idTipoTransaccion = @idTipoTransaccion and email = @email
 	end
+
+exec transaccionConFiltro 1,'jusolis@hotmail.com'
 
 create proc transaccionSumaMonto
 	@idTipoTransaccion int,
@@ -107,9 +109,6 @@ create proc transaccionSumaMonto
 	select sum(monto) as Monto
 	from transaccion where idTipoTransaccion = @idTipoTransaccion and email = @email
 	end
-
-exec transaccionConFiltro 1
-exec transaccionSumaMonto 2,'jusolis@hotmail.com'
 
 -- crea la tabla tipoUsuario
 create table tipoUsuario
@@ -148,13 +147,18 @@ create table usuario
 	email varchar(20),
 	clave varchar(30) not null,
 	idusuario int,
-	tipo_usuario varchar(50),
+	tipo_usuario int,
 	constraint pk_email primary key (email), --llave primaria
 	constraint fk_idusuario foreign key (idusuario) references persona(id), --llave foranea
 	constraint fk_idtipousuario foreign key (tipo_usuario) references tipoUsuario(id)
 )
 
+
+select * from usuario
+
 --******Procedimientos almacenados******
+
+
 create proc agregarUsuario
 	@email varchar(20),
 	@clave varchar(30),
@@ -164,7 +168,7 @@ create proc agregarUsuario
 	begin
 	insert into usuario values(@email,@idusuario,@tipo_usuario,@clave)
 	end
-
+select * from usuario
 create proc borrarUsuario
 	@email varchar(50)
 	as
@@ -189,6 +193,25 @@ create proc actualizarClave
 	begin
 	update usuario set clave = @clave where email = @email
 	end
+
+create proc obtTipoUsuario
+	@email varchar(50)
+	as
+	begin
+	select tipo_usuario from usuario where email = @email
+	end
+
+create proc validarUsuario
+	@email varchar(50),
+	@clave varchar(30),
+	@tipo_usuario varchar(50)
+	as
+	begin
+	select * from usuario where email=@email and clave = @clave and tipo_usuario = @tipo_usuario
+	end
+exec validarUsuario 'jusolis@hotmail.com',123,2
+
+exec obtTipoUsuario 'jsolis@hotmail.com'
 	
 insert  into usuario (email,clave,tipo_usuario,idusuario) values('rduran@gmail.com','123','1',1)
 select * from usuario
