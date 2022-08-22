@@ -37,9 +37,9 @@
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Ingresos y Gastos</h1>
-    <div class="auto-style1">Tipo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    <h1 style="text-align:center;">Ingresos y Gastos</h1>
+    <div class="auto-style1">
+        Tipo:<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         <br />
         <br />
         Descripcion:<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
@@ -61,11 +61,37 @@
         <asp:Button class="btn-navbar" ID="Button3" runat="server" Text="Borrar" />
     </div>
     <div class="auto-style2">
-        <asp:GridView ID="GridView1" runat="server" Height="285px" Width="719px">
+        <asp:GridView ID="GridView1" runat="server" Height="285px" Width="719px" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlIngresos">
+            <Columns>
+                <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                <asp:BoundField DataField="idTipoTransaccion" HeaderText="idTipoTransaccion" SortExpression="idTipoTransaccion" />
+                <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" SortExpression="Descripcion" />
+                <asp:BoundField DataField="monto" HeaderText="monto" SortExpression="monto" />
+                <asp:BoundField DataField="Fecha" HeaderText="Fecha" SortExpression="Fecha" />
+            </Columns>
         </asp:GridView>
+        <asp:SqlDataSource ID="SqlIngresos" runat="server" ConnectionString="<%$ ConnectionStrings:presupuestoConnectionString %>" SelectCommand="SELECT * FROM [transaccion] WHERE ([idTipoTransaccion] = @idTipoTransaccion)">
+            <SelectParameters>
+                <asp:Parameter DefaultValue="1" Name="idTipoTransaccion" Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
     </div>
     <div class="auto-style3">
-        <asp:GridView ID="GridView2" runat="server" Height="285px" Width="704px">
+        <asp:GridView ID="GridView2" runat="server" Height="285px" Width="716px" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlGastos">
+            <Columns>
+                <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                <asp:BoundField DataField="idTipoTransaccion" HeaderText="idTipoTransaccion" SortExpression="idTipoTransaccion" />
+                <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" SortExpression="Descripcion" />
+                <asp:BoundField DataField="monto" HeaderText="monto" SortExpression="monto" />
+                <asp:BoundField DataField="Fecha" HeaderText="Fecha" SortExpression="Fecha" />
+            </Columns>
         </asp:GridView>
+        <asp:SqlDataSource ID="SqlGastos" runat="server" ConnectionString="<%$ ConnectionStrings:presupuestoConnectionString %>" SelectCommand="SELECT * FROM [transaccion] WHERE ([idTipoTransaccion] = @idTipoTransaccion)">
+            <SelectParameters>
+                <asp:Parameter DefaultValue="2" Name="idTipoTransaccion" Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
     </div>
 </asp:Content>

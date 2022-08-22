@@ -13,14 +13,35 @@
     <div>
                 <fieldset>
             <legend>Ingresos</legend>
-                    <asp:GridView ID="GridView2" runat="server">
+                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlIngresos">
+                        <Columns>
+                            <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                            <asp:BoundField DataField="idTipoTransaccion" HeaderText="idTipoTransaccion" SortExpression="idTipoTransaccion" />
+                            <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
+                            <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" SortExpression="Descripcion" />
+                            <asp:BoundField DataField="monto" HeaderText="monto" SortExpression="monto" />
+                            <asp:BoundField DataField="Fecha" HeaderText="Fecha" SortExpression="Fecha" />
+                        </Columns>
                     </asp:GridView>
+                    <asp:SqlDataSource ID="SqlIngresos" runat="server" ConnectionString="<%$ ConnectionStrings:presupuestoConnectionString %>" SelectCommand="SELECT * FROM [transaccion] WHERE ([idTipoTransaccion] = @idTipoTransaccion)">
+                        <SelectParameters>
+                            <asp:Parameter DefaultValue="2" Name="idTipoTransaccion" Type="Int32" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
         </fieldset>
     </div>
     <div>
                 <fieldset>
             <legend>Gastos</legend>
-                    <asp:GridView ID="GridView3" runat="server">
+                    <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlIngresos">
+                        <Columns>
+                            <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                            <asp:BoundField DataField="idTipoTransaccion" HeaderText="idTipoTransaccion" SortExpression="idTipoTransaccion" />
+                            <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
+                            <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" SortExpression="Descripcion" />
+                            <asp:BoundField DataField="monto" HeaderText="monto" SortExpression="monto" />
+                            <asp:BoundField DataField="Fecha" HeaderText="Fecha" SortExpression="Fecha" />
+                        </Columns>
                     </asp:GridView>
         </fieldset>
     </div>
