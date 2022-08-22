@@ -10,7 +10,7 @@
             <br />
             ID Usuario:<asp:TextBox ID="txtIdpersona" runat="server" Height="25px"></asp:TextBox><br />
             <br />
-            Tipo Usuario:<asp:DropDownList ID="drdTipoUsuario" runat="server" DataTextField="tipo_usuario" DataValueField="tipo_usuario" Height="25px" Width="155px" AutoPostBack="True">
+            Tipo Usuario:<asp:DropDownList ID="drdTipoUsuario" runat="server" DataTextField="tipo_usuario" DataValueField="tipo_usuario" Height="25px" Width="155px" AutoPostBack="True" OnSelectedIndexChanged="drdTipoUsuario_SelectedIndexChanged">
                 <asp:ListItem Value="1">Admin</asp:ListItem>
                 <asp:ListItem Value="2">Regular</asp:ListItem>
             </asp:DropDownList>

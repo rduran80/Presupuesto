@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <h1>Reportes</h1>
     <div class="auto-style1">
-        Tipo De Reporte:<asp:DropDownList runat="server" DataSourceID="SqlDataSource1" DataTextField="Descripcion" DataValueField="Descripcion" ID="drdTipo">
+        Tipo De Reporte:<asp:DropDownList runat="server" DataSourceID="SqlDataSource1" DataTextField="Descripcion" DataValueField="Descripcion" ID="drdTipo" OnSelectedIndexChanged="drdTipo_SelectedIndexChanged">
             <asp:ListItem Value="0">Año</asp:ListItem>
             <asp:ListItem Value="1">Mes</asp:ListItem>
             <asp:ListItem Value="2">Ingresos</asp:ListItem>

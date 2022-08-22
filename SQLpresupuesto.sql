@@ -141,6 +141,15 @@ create proc actualizarTipoUsuario
 	update tipoUsuario set Descripcion = @Descripcion where id = @id
 	end
 
+create proc obtUsuario
+	@id int
+	as
+	begin
+	select * from tipoUsuario where id=@id
+	end
+drop proc obtUsuario
+exec obtUsuario 2
+
 -- crea la tabla usuario
 create table usuario
 (

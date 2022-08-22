@@ -21,7 +21,10 @@ namespace presupuesto_RoyDuran
 
         protected void drdTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (drdTipo.SelectedIndex == 0)
+            {
 
+            }
         }
     }
 }

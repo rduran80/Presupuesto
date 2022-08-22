@@ -18,6 +18,7 @@ namespace presupuesto_RoyDuran
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
+            
             string s = System.Configuration.ConfigurationManager.ConnectionStrings["presupuestoConnectionString"].ConnectionString;
             SqlConnection conexion = new SqlConnection(s);
 

@@ -33,6 +33,15 @@ namespace presupuesto_RoyDuran
         protected global::System.Web.UI.WebControls.GridView GridView2;
 
         /// <summary>
+        /// Control SqlIngresos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlIngresos;
+
+        /// <summary>
         /// Control GridView3.
         /// </summary>
         /// <remarks>

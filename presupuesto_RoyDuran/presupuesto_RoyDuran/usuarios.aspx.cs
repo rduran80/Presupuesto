@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace presupuesto_RoyDuran.catalogos
 {
@@ -43,5 +45,23 @@ namespace presupuesto_RoyDuran.catalogos
             txtIdpersona.Text = "";
         }
 
+        protected void drdTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string s = System.Configuration.ConfigurationManager.ConnectionStrings["presupuestoConnectionString"].ConnectionString;
+            SqlConnection conexion = new SqlConnection(s);
+
+            SqlCommand comando = new SqlCommand("validarUsuario", conexion)
+            {
+                CommandType = System.Data.CommandType.StoredProcedure
+            };
+            conexion.Open();
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            drdTipoUsuario.DataSource = ds;
+            drdTipoUsuario.DataSource = "Descripcion";
+            drdTipoUsuario.DataSource = "id";
+        }
     }
 }

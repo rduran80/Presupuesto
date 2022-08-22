@@ -11,12 +11,12 @@ namespace presupuesto_RoyDuran
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            txtUsuario.Text = txtMail.Text;
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
