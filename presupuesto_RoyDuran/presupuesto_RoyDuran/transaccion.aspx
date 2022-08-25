@@ -61,7 +61,7 @@
         <asp:Button class="btn-navbar" ID="Button3" runat="server" Text="Borrar" />
     </div>
     <div class="auto-style2">
-        <asp:GridView ID="GridView1" runat="server" Height="285px" Width="719px" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlIngresos">
+        <asp:GridView ID="GridView1" runat="server" Height="285px" Width="719px" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlIngresos" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                 <asp:BoundField DataField="idTipoTransaccion" HeaderText="idTipoTransaccion" SortExpression="idTipoTransaccion" />

@@ -7,6 +7,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="css/style.css" rel="stylesheet" />
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            margin-left: 0px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -34,11 +39,16 @@
                 Telefono :<asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
                 <br />
                 <br />
-                Usuario:&nbsp;&nbsp; <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox>
+                Usuario:&nbsp;&nbsp; <asp:TextBox ID="txtUsuario" runat="server" Enabled="False"></asp:TextBox>
                 <br />
                 <br />
                 Clave:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtClve" runat="server"></asp:TextBox>
                 <br />
+                <br />
+                Tipo usuario:
+                <asp:DropDownList ID="drdTipoUsuario" runat="server" CssClass="auto-style1" DataSourceID="SqlTipoUsuario" DataTextField="Descripcion" DataValueField="id" Width="137px">
+                </asp:DropDownList>
+                <asp:SqlDataSource ID="SqlTipoUsuario" runat="server" ConnectionString="<%$ ConnectionStrings:presupuestoConnectionString %>" SelectCommand="SELECT * FROM [tipoUsuario]"></asp:SqlDataSource>
                 <br />
                 <br />
                 <asp:Button class="btn-navbar" ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click"/>

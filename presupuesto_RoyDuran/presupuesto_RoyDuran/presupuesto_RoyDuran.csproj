@@ -167,7 +167,7 @@
     </Compile>
     <Compile Include="Clases\ClsPersona.cs" />
     <Compile Include="Clases\ClsTransaccion.cs" />
-    <Compile Include="ClsUsuario.cs" />
+    <Compile Include="Clases\ClsUsuario.cs" />
     <Compile Include="mainMaster.Master.cs">
       <DependentUpon>mainMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

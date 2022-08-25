@@ -1,8 +1,8 @@
 create database presupuesto
-
-drop database presupuesto
+go
 
 use presupuesto
+go
 
 -- crea la tabla tipo_transaccion
 create table tipo_transaccion
@@ -151,17 +151,19 @@ drop proc obtUsuario
 exec obtUsuario 2
 
 -- crea la tabla usuario
+--*********************************
 create table usuario
 (
 	email varchar(20),
 	clave varchar(30) not null,
-	idusuario int,
+	idusuario int identity (1,1),
 	tipo_usuario int,
 	constraint pk_email primary key (email), --llave primaria
 	constraint fk_idusuario foreign key (idusuario) references persona(id), --llave foranea
 	constraint fk_idtipousuario foreign key (tipo_usuario) references tipoUsuario(id)
 )
-
+alter table usuario
+add idusuario int identity (1,1)
 
 select * from usuario
 
@@ -169,13 +171,12 @@ select * from usuario
 create proc agregarUsuario
 	@email varchar(20),
 	@clave varchar(30),
-	@idusuario int,
 	@tipo_usuario int
 	as
 	begin
-	insert into usuario values(@email,@idusuario,@tipo_usuario,@clave)
+	insert into usuario values(@email,@clave,@tipo_usuario)
 	end
-select * from usuario
+
 create proc borrarUsuario
 	@email varchar(50)
 	as
@@ -186,11 +187,10 @@ create proc borrarUsuario
 create proc actualizarUsuario
 	@email varchar(50),
 	@clave varchar(30),
-	@idusuario int,
 	@tipo_usuario varchar(50)
 	as
 	begin
-	update usuario set clave=@clave, tipo_usuario=@tipo_usuario,idusuario=@idusuario where email = @email
+	update usuario set clave=@clave, tipo_usuario=@tipo_usuario where email = @email
 	end
 
 create proc actualizarClave
@@ -201,6 +201,15 @@ create proc actualizarClave
 	update usuario set clave = @clave where email = @email
 	end
 
+create proc borrarUsuario
+	@email varchar(50)
+	as
+	begin
+	delete usuario where email = @email
+	end
+exec borrarUsuario 2
+select * from usuario
+
 create proc obtTipoUsuario
 	@email varchar(50)
 	as
@@ -208,21 +217,8 @@ create proc obtTipoUsuario
 	select tipo_usuario from usuario where email = @email
 	end
 
-create proc validarUsuario
-	@email varchar(50),
-	@clave varchar(30)
-	as
-	begin
-	select * from usuario where email=@email and clave = @clave
-	end
 drop proc validarUsuario
 exec validarUsuario 'jusolis@hotmail.com',123
-
-exec obtTipoUsuario 'jsolis@hotmail.com'
-	
-insert  into usuario (email,clave,tipo_usuario,idusuario) values('rduran@gmail.com','123','1',1)
-select * from usuario
-select * from persona
 
 -- crea la tabla persona
 create table persona
@@ -232,13 +228,15 @@ create table persona
 	Nombre varchar(50) not null,
 	Apellido1 varchar(50) not null,
 	Apellido2 varchar(50) null,
-	Email varchar(20) not null,
+	emailPersona varchar(20) not null,
 	Direccion varchar(100) null,
 	Telefono varchar(20),
 	constraint pk_idpersona primary key (id),
-	constraint fk_personaemail foreign key (Email) references usuario(email), --llave foranea
+	constraint fk_personaemail foreign key (emailPersona) references usuario(email), --llave foranea
 	constraint uq_cedula unique (cedula)
 )
+alter table persona
+drop constraint fk_personaemail
 
 --******Procedimientos almacenados******
 create proc selectPersona
@@ -248,7 +246,35 @@ create proc selectPersona
 	select * from persona where cedula = @Cedula
 	end
 
-exec selectPersona '2-2000-2000'
+select * from usuario
+select * from persona
+delete persona where direccion = 'anduran64@gmail.com'
+
+create proc registrarPersonaUsuario
+	@Cedula varchar(20),
+	@Nombre varchar(50),
+	@Apellido1 varchar(50),
+	@Apellido2 varchar(50),
+	@Direccion varchar(100),
+	@Telefono varchar(20),
+	@emailPersona varchar(20),
+	--datos de usuario
+	@email varchar(20),
+	@clave varchar(30),
+	@tipo_usuario int
+	as
+	begin
+	insert into persona values(@Cedula,@Nombre,@Apellido1,@Apellido2,@emailPersona,@Direccion,@Telefono);
+	insert into usuario values(@email,@clave,@tipo_usuario)
+	end
+
+	drop proc registrarPersonaUsuario
+exec registrarPersonaUsuario '1-1000-1000','Roy','Duran','Alpizar','San Jose','8954-5602','rduran64@gmail.com','rduran64@gmail.com',2,'123'
+exec registrarPersonaUsuario '2-2000-2000','Jason','Duran','Alpizar','San Jose','8510-4649','jduran64@gmail.com','jduran25@gmail.com',2,'123'
+exec registrarPersonaUsuario '3-3000-3000','Anthony','Duran','Alpizar','San Jose','8809-6244','anduran64@gmail.com','anduran63@gmail.com','123',2
+
+delete usuario where idUsuario = 5
+select * from usuario
 
 create proc agregarPersona
 	@Cedula varchar(20),
@@ -256,18 +282,22 @@ create proc agregarPersona
 	@Apellido1 varchar(50),
 	@Apellido2 varchar(50),
 	@Direccion varchar(100),
-	@Telefono varchar(20)
+	@Telefono varchar(20),
+	@emailPersona varchar(20)
 	as
 	begin
-	insert into persona values(@Cedula,@Nombre,@Apellido1,@Apellido2,@Direccion,@Telefono)
+	insert into persona values(@Cedula,@Nombre,@Apellido1,@Apellido2,@Direccion,@Telefono,@emailPersona)
 	end
 
+
 create proc borrarPersona
-	@Cedula varchar(20)
+	@emailPersona varchar(20)
 	as
 	begin
-	delete persona where Cedula = @Cedula
+	delete persona where emailPersona = @emailPersona
 	end
+
+
 
 create proc actualizarPersona
 	@Cedula varchar(20),
@@ -275,10 +305,11 @@ create proc actualizarPersona
 	@Apellido1 varchar(50),
 	@Apellido2 varchar(50),
 	@Direccion varchar(100),
-	@Telefono varchar(20)
+	@Telefono varchar(20),
+	@emailPersona varchar(20)
 	as
 	begin
-	update persona set Cedula=@Cedula, Nombre=@Nombre, Apellido1=@Apellido1, Apellido2=@Apellido2, Direccion=@Direccion, Telefono=@Telefono
+	update persona set Nombre=@Nombre, Apellido1=@Apellido1, Apellido2=@Apellido2, Direccion=@Direccion, Telefono=@Telefono where cedula=@Cedula
 	end
 
 select * from persona
@@ -292,6 +323,7 @@ create table TipoUsuario_Auditoria
 	Tipo varchar(20),
 	Fecha Datetime
 )
+select * from TipoUsuario_Auditoria
 
 -- se crea la sentencia del trigger
 create trigger Trigger_Auditoria_TipoUsuario
