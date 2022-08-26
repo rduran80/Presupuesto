@@ -11,7 +11,9 @@ namespace presupuesto_RoyDuran
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            int tipoTrans;
+            lblTipoT.Text = drdTipoT.SelectedValue;
+            tipoTrans = int.Parse(lblTipoT.Text);
         }
 
     }
