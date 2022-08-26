@@ -10,10 +10,9 @@
         </asp:DropDownList>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:presupuestoConnectionString %>" SelectCommand="obtTipoTrans" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
 &nbsp;<asp:Label ID="lblMail" runat="server"></asp:Label>
-        <asp:Label ID="lblTipoT" runat="server"></asp:Label>
         <br />
         <br />
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlReporte" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="1285px">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlReporte" Width="1285px">
             <Columns>
                 <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                 <asp:BoundField DataField="idTipoTransaccion" HeaderText="idTipoTransaccion" SortExpression="idTipoTransaccion" />
