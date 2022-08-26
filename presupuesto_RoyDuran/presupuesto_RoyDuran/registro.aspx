@@ -36,7 +36,7 @@
                 Direccion:<asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
                 <br />
                 <br />
-                Telefono :<asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
+                Telefono :<asp:TextBox ID="txtTelefono" runat="server" AutoPostBack="True"></asp:TextBox>
                 <br />
                 <br />
                 Usuario:&nbsp;&nbsp; <asp:TextBox ID="txtUsuario" runat="server" Enabled="False"></asp:TextBox>
@@ -45,8 +45,7 @@
                 Clave:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtClve" runat="server"></asp:TextBox>
                 <br />
                 <br />
-                Tipo usuario:
-                <asp:DropDownList ID="drdTipoUsuario" runat="server" CssClass="auto-style1" DataSourceID="SqlTipoUsuario" DataTextField="Descripcion" DataValueField="id" Width="137px">
+                Tipo usuario: <asp:DropDownList ID="drdTipoUsuario" runat="server" CssClass="auto-style1" DataSourceID="SqlTipoUsuario" DataTextField="Descripcion" DataValueField="id" Width="137px">
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="SqlTipoUsuario" runat="server" ConnectionString="<%$ ConnectionStrings:presupuestoConnectionString %>" SelectCommand="SELECT * FROM [tipoUsuario]"></asp:SqlDataSource>
                 <br />
