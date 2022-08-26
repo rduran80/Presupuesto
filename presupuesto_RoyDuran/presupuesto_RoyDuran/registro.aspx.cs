@@ -16,7 +16,7 @@ namespace presupuesto_RoyDuran
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            Clases.ClsPersona.registrarPersonaUsuario(txtCedula.Text,txtNombre.Text,txtApellido1.Text,txtApellido2.Text,txtDireccion.Text,txtTelefono.Text,txtMail.Text,txtMail.Text,txtClve.Text,int.Parse(drdTipoUsuario.SelectedItem.Value));
+            Clases.ClsPersona.registrarPersonaUsuario(txtCedula.Text,txtNombre.Text,txtApellido1.Text,txtApellido2.Text, txtMail.Text, txtDireccion.Text,txtTelefono.Text,txtMail.Text,txtClve.Text,int.Parse(drdTipoUsuario.SelectedItem.Value));
             Response.Redirect("login1.aspx");
         }
     }

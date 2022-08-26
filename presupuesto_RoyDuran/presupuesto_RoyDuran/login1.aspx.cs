@@ -33,11 +33,11 @@ namespace presupuesto_RoyDuran
 
             if (registro.Read())
             {
-                if (registro[2].Equals(1))
+                if (registro[1].Equals(1))
                 {
                     Response.Redirect("inicio.aspx");
                 }
-                else if (registro[2].Equals(2))
+                else if (registro[1].Equals(2))
                 {
                     Response.Redirect("inicioRegular.aspx");
                 }
